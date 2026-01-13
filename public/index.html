@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDENPLAY GAMES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        body {
+            background-color: #0a1428;
+        }
+
+        /* 导航栏 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #1f1708;
+            border-bottom: 1px solid #1e2d47;
+        }
+
+        .nav-logo {
+            height: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #c0c6d0;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* 英雄区 */
+        .hero {
+            padding: 4rem 5%;
+            background: linear-gradient(rgba(99, 85, 35, 0.1), rgba(136, 124, 83, 0.1)), url('assets/img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: #FFFF;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: #F8AF18;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: #c0c6d0;
+            margin-bottom: 2rem;
+        }
+
+        .store-badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .store-badges img {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-item p {
+            color: #c0c6d0;
+            font-size: 0.8rem;
+        }
+
+        .hero-app-preview {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .hero-app-preview img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* 精选游戏区 */
+        .featured-games {
+            padding: 4rem 5%;
+            background-color: #0f1a30;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .section-header p {
+            color: #c0c6d0;
+            font-size: 0.9rem;
+        }
+
+        .section-header a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-card {
+            background-color: #1e2d47;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .game-card .game-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .game-card .hot-badge {
+            position: relative;
+            top: -35px;
+            left: 10px;
+            background-color: #ff4500;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            width: fit-content;
+        }
+
+        .game-card .game-info {
+            padding: 1rem;
+        }
+
+        .game-card h4 {
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .game-card .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+            margin-left: 0.5rem;
+            color: #c0c6d0;
+            font-size: 0.9rem;
+        }
+
+        .game-card .store-badges {
+            margin-left: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .game-card .store-badges img {
+            height: 36px;
+            cursor: pointer;
+        }
+
+        /* 奖励区 */
+        .rewards-section {
+            padding: 4rem 5%;
+            background-color: #ffFFFF;
+            text-align: center;
+        }
+
+        .rewards-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .rewards-section p {
+            color: #000;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 页脚 */
+        footer {
+            padding: 3rem 5%;
+            background-color: #FEF2DF;
+            border-top: 1px solid #1e2d47;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            height: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-left p {
+            color: #c0c6d0;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #92400E;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #92400E;
+        }
+
+        footer h4 {
+            margin-bottom: 1rem;
+                        color: #92400E;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #92400E;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #92400E;
+        }
+
+        .copyright {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+            color: #92400E;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <img src="assets/img/title_logo.png" alt="CREATION GAMES Logo" class="nav-logo">
+        <ul>
+            <li><a href="#playnow">PlayNow</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- PlayNow -->
+    <section class="hero" id="playnow">
+        <div class="hero-text">
+            <h1>PlayNow: Play to Earn</h1>
+            <h2>Play for free, earn for real.</h2>
+            <p>Why just play games when you can get paid to play? PlayNow lets you earn points with 100% free games — no ads, no in-app purchases, just pure fun that pays off. Cash out your points whenever you want! </p>
+            <div class="store-badges">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png"
+                    alt="Google Play" onclick="alert('产品即将上线')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1200px-Download_on_the_App_Store_Badge.svg.png"
+                    alt="App Store" onclick="alert('产品即将上线')">
+            </div>
+        </div>
+        <div class="hero-app-preview">
+            <img src="assets/img/app_screen.png" alt="Game App Preview">
+        </div>
+    </section>
+
+
+    <!-- 奖励区 -->
+    <section class="rewards-section">
+        <h2>Play What You Love, Earn As You Play.</h2>
+        <p>Play your fav games, get paid for having fun! Puzzles, action, and everything in between—play on your terms, earn with every play.</p>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-left">
+            <img src="assets/img/title_logo.png" alt="GOLDEN GAMES Logo"
+                class="footer-logo">
+        </div>
+        <div>
+            <h4>About</h4>
+            <ul>
+                <li><a href="https://goldenmindplay.com/termofservice.html">Terms of Service</a></li>
+                <li><a href="https://goldenmindplay.com/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2026 GOLADEN GAMES | All Rights Reserved
+        </div>
+    </footer>
+</body>
+
+</html>
