@@ -2,7 +2,7 @@
 mopub.com, d57010d6e63449828a09321475ce74e0, DIRECT, 74b46c0ea83967ca
 
 #Admob
-google.com, pub-7185389617077242, DIRECT, f08c47fec0942fa0
+google.com, pub-3315639276375522, DIRECT, f08c47fec0942fa0
 
 #Applovin
 applovin.com, eb47be2edbe4c2561923a3434a4d5f76, DIRECT
